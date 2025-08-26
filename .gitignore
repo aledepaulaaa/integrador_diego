@@ -1,0 +1,8 @@
+# NODE MODULES
+node_modules
+
+# VARIAVEIS DE AMBIENTE
+.env
+
+# ARQUIVOS JSON
+data
