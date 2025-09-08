@@ -44,8 +44,7 @@ async function processCnpjEntry(entry, dateRange) {
         cnpjModel.updateChecked(cnpj, new Date().toISOString(), { found: notasBaixadas.length });
         apiController.setState({ statusMessage: `Baixadas ${notasBaixadas.length} de ${totalNotasContadas} notas para ${cnpj}.` });
         apiController.setState({ statusMessage: `Enviando ${notasBaixadas.length} notas para NF-Stock...` });
-        const token = await nfService.getToken();
-        const envioResultado = await nfService.uploadAll(notasBaixadas, token);
+        const envioResultado = await nfService.uploadAll(notasBaixadas);
 
         simpleLog(`CNPJ ${cnpj} finalizado. Contadas: ${totalNotasContadas}, Baixadas: ${notasBaixadas.length}, Enviadas: ${envioResultado.sent}, Falhas: ${envioResultado.failed}, Puladas: ${envioResultado.skipped}`);
         apiController.setState({ statusMessage: `Finalizado envio para ${cnpj}: ${envioResultado.sent} enviados, ${envioResultado.failed} falhas.` });

@@ -1,3 +1,4 @@
+//src/views/public/app.js
 (function () {
     // Objeto para centralizar as chamadas de API
     const api = {

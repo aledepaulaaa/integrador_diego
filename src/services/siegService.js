@@ -87,6 +87,7 @@ async function baixarNotas({ cnpj, startISO, endISO, total }) {
                         const match = xmlDecoded.match(/<chNFe>(\d{44})<\/chNFe>|<infNFe\s+Id="NFe(\d{44})"/);
                         if (match) chave = match[1] || match[2];
                         allXmls.push({ chave: chave, xml: xmlDecoded });
+                        log(`Nota baixada com sucesso: ${chave}`);
                     }
                 } catch (e) {
                     log(`Aviso: Falha ao decodificar ou processar uma string Base64.`);
